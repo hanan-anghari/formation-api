@@ -4,30 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Formation {
+public class Domaine {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String intitule;
-    @Column(name = "public")
-    private String publicConcerne;
-    private String objectif;
-    private String programme;
-    private int duree;
-    private boolean distanciel;
-    @ManyToOne
-    @JoinColumn(name="id_theme")
-    private Theme theme;
+    @ManyToMany
+    @JoinTable(
+            name = "domaine_theme",
+            joinColumns = @JoinColumn(name = "id_domaine"),
+            inverseJoinColumns = @JoinColumn(name = "id_theme"))
+    private List<Theme> themesListe;
 }

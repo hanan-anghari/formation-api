@@ -14,7 +14,7 @@ public class MainController {
     private FormationMapper formationMapper;
     @GetMapping
     public ResponseEntity<FormationDto> getTest() {
-        final Formation formation = new Formation(1, "java");
+        final Formation formation = new Formation();
         
         final FormationDto formationDto = formationMapper.entityToDto(formation);
         return ResponseEntity.ok(formationDto);
