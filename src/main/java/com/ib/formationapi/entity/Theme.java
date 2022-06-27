@@ -15,7 +15,7 @@ import java.util.List;
 public class Theme {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String titre;
     @OneToMany(mappedBy = "themeParent", cascade  = CascadeType.ALL)
     private List<Theme> sousThemeListe;

@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
 public class Formation {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String intitule;
     @Column(name = "public")
     private String publicConcerne;

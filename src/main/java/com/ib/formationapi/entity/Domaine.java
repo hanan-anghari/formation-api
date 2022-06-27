@@ -20,7 +20,7 @@ import java.util.List;
 public class Domaine {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String intitule;
     @ManyToMany
     @JoinTable(

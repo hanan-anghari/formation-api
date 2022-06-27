@@ -13,10 +13,12 @@ public class MainController {
     @Autowired
     private FormationMapper formationMapper;
     @GetMapping
-    public ResponseEntity<FormationDto> getTest() {
+    public ResponseEntity<FormationDto> getFormation() {
         final Formation formation = new Formation();
         
         final FormationDto formationDto = formationMapper.entityToDto(formation);
         return ResponseEntity.ok(formationDto);
     }
+
+
 }
